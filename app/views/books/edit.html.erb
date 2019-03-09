@@ -2,12 +2,16 @@
 <%= form_for(@book) do |f| %>
 
   <h4> Title </h4>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, class:"book_title" %>
 
   <h4> Body </h4>
-  <%= f.text_area :body %>
+  <%= f.text_area :body, class:"book_body" %>
 
   <div> <%= f.submit 'Update Book' %> </div>
 
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
 <% end %>
-<%= link_to 'Back', books_path %>
+<%= link_to 'Back', books_path, class:"back" %>
